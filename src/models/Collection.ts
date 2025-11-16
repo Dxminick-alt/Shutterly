@@ -4,7 +4,7 @@
  * @author Youssef, Dominic, Mustafa
  */
 
-import { Collection as ICollection } from '../types';
+import type { Collection as ICollection } from '../types';
 
 /**
  * Represents a collection of photos

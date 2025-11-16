@@ -1,4 +1,4 @@
-import { X, Heart, Download, Send, Bookmark, UserPlus, UserCheck } from 'lucide-react';
+import { X, Heart, Download, Send, Bookmark, UserPlus, UserCheck, Trash2 } from 'lucide-react';
 import { Photo, User } from '../types';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
@@ -19,6 +19,7 @@ interface PhotoModalProps {
   onDownloadClick: (photo: Photo) => void;
   onFollow: (userId: string) => void;
   onUserClick: (userId: string) => void;
+  onDelete: (photoId: string) => void;
   isLiked: boolean;
   isSaved: boolean;
 }
@@ -35,6 +36,7 @@ export function PhotoModal({
   onDownloadClick,
   onFollow,
   onUserClick,
+  onDelete,
   isLiked,
   isSaved,
 }: PhotoModalProps) {
@@ -127,6 +129,18 @@ export function PhotoModal({
             <Button variant="outline" onClick={() => onDownloadClick(photo)}>
               <Download className="w-4 h-4" />
             </Button>
+            {isOwnPhoto && (
+              <Button 
+                variant="destructive" 
+                onClick={() => {
+                  if (window.confirm('Are you sure you want to delete this photo?')) {
+                    onDelete(photo.id);
+                  }
+                }}
+              >
+                <Trash2 className="w-4 h-4" />
+              </Button>
+            )}
           </div>
 
           {/* Comments */}

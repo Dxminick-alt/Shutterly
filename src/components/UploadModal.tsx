@@ -1,4 +1,4 @@
-import { X, Upload } from 'lucide-react';
+import { X, Upload, Link, Image } from 'lucide-react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
@@ -12,12 +12,47 @@ interface UploadModalProps {
 }
 
 export function UploadModal({ currentUser, onClose, onUpload }: UploadModalProps) {
+  const [uploadMode, setUploadMode] = useState<'url' | 'file'>('file'); // Default to file upload
   const [formData, setFormData] = useState({
     title: '',
     description: '',
     category: 'Portrait',
     imageUrl: '',
   });
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [fileError, setFileError] = useState<string>('');
+
+  const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
+  const ALLOWED_TYPES = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/webp'];
+
+  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    // Validate file type
+    if (!ALLOWED_TYPES.includes(file.type)) {
+      setFileError('Please select a valid image file (JPG, PNG, GIF, or WebP)');
+      setSelectedFile(null);
+      return;
+    }
+
+    // Validate file size
+    if (file.size > MAX_FILE_SIZE) {
+      setFileError(`File is too large. Maximum size is ${MAX_FILE_SIZE / (1024 * 1024)}MB`);
+      setSelectedFile(null);
+      return;
+    }
+
+    setFileError('');
+    setSelectedFile(file);
+
+    // Convert to base64
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setFormData({ ...formData, imageUrl: reader.result as string });
+    };
+    reader.readAsDataURL(file);
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -25,6 +60,12 @@ export function UploadModal({ currentUser, onClose, onUpload }: UploadModalProps
       onUpload(formData.title, formData.description, formData.category, formData.imageUrl);
       onClose();
     }
+  };
+
+  const formatFileSize = (bytes: number) => {
+    if (bytes < 1024) return bytes + ' B';
+    if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(2) + ' KB';
+    return (bytes / (1024 * 1024)).toFixed(2) + ' MB';
   };
 
   const categories = [
@@ -55,23 +96,92 @@ export function UploadModal({ currentUser, onClose, onUpload }: UploadModalProps
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
-              <label htmlFor="imageUrl" className="block mb-2 text-gray-700 dark:text-gray-300">
-                Image URL *
-              </label>
-              <Input
-                id="imageUrl"
-                type="url"
-                value={formData.imageUrl}
-                onChange={(e) => setFormData({ ...formData, imageUrl: e.target.value })}
-                placeholder="https://example.com/image.jpg"
-                required
-                className="dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-              />
-              <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-                Paste a URL to an image you want to share
-              </p>
+            {/* Upload Mode Toggle */}
+            <div className="flex gap-2 p-1 bg-gray-100 dark:bg-gray-700 rounded-lg">
+              <button
+                type="button"
+                onClick={() => {
+                  setUploadMode('file');
+                  setFormData({ ...formData, imageUrl: '' });
+                  setFileError('');
+                }}
+                className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-md transition-colors ${
+                  uploadMode === 'file'
+                    ? 'bg-white dark:bg-gray-800 shadow text-gray-900 dark:text-white'
+                    : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
+                }`}
+              >
+                <Image className="w-4 h-4" />
+                Upload from PC
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setUploadMode('url');
+                  setFormData({ ...formData, imageUrl: '' });
+                  setSelectedFile(null);
+                  setFileError('');
+                }}
+                className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-md transition-colors ${
+                  uploadMode === 'url'
+                    ? 'bg-white dark:bg-gray-800 shadow text-gray-900 dark:text-white'
+                    : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
+                }`}
+              >
+                <Link className="w-4 h-4" />
+                Image URL
+              </button>
             </div>
+
+            {/* File Upload Mode */}
+            {uploadMode === 'file' && (
+              <div>
+                <label htmlFor="fileInput" className="block mb-2 text-gray-700 dark:text-gray-300">
+                  Choose Image *
+                </label>
+                <input
+                  id="fileInput"
+                  type="file"
+                  accept="image/jpeg,image/jpg,image/png,image/gif,image/webp"
+                  onChange={handleFileSelect}
+                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-gray-900 file:text-white dark:file:bg-white dark:file:text-gray-900 hover:file:bg-gray-700 dark:hover:file:bg-gray-200"
+                />
+                <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                  Max size: 5MB. Supported formats: JPG, PNG, GIF, WebP
+                </p>
+                {selectedFile && (
+                  <p className="text-xs text-green-600 dark:text-green-400 mt-1">
+                    ✓ {selectedFile.name} ({formatFileSize(selectedFile.size)})
+                  </p>
+                )}
+                {fileError && (
+                  <p className="text-xs text-red-600 dark:text-red-400 mt-1">
+                    ✗ {fileError}
+                  </p>
+                )}
+              </div>
+            )}
+
+            {/* URL Mode */}
+            {uploadMode === 'url' && (
+              <div>
+                <label htmlFor="imageUrl" className="block mb-2 text-gray-700 dark:text-gray-300">
+                  Image URL *
+                </label>
+                <Input
+                  id="imageUrl"
+                  type="url"
+                  value={formData.imageUrl}
+                  onChange={(e) => setFormData({ ...formData, imageUrl: e.target.value })}
+                  placeholder="https://example.com/image.jpg"
+                  required
+                  className="dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                />
+                <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                  Paste a URL to an image you want to share
+                </p>
+              </div>
+            )}
 
             {formData.imageUrl && (
               <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-2">

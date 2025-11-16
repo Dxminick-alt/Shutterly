@@ -168,7 +168,6 @@ describe('Integration Tests - Multi-Module Interaction', () => {
       
       // Step 2: Upload photo
       const photo = new Photo('photo1', 'sunset.jpg', 'Sunset', user.id, user.name, 'nature', 'Beautiful view');
-      storage.savePhotos([photo]);
       
       // Step 3: Another user likes and comments
       const user2 = new User('user2', 'Jane', 'jane@example.com');
@@ -180,6 +179,9 @@ describe('Integration Tests - Multi-Module Interaction', () => {
         text: 'Amazing shot!',
         createdAt: new Date().toISOString(),
       });
+      
+      // Save photo with likes and comments
+      storage.savePhotos([photo]);
       
       // Step 4: Save photo to collection
       const collection = new Collection('col1', user2.id, 'Favorites');

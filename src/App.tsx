@@ -135,6 +135,37 @@ function AppContent() {
     );
   };
 
+  const handleDeletePhoto = (photoId: string) => {
+    if (!currentUser) return;
+
+    // Remove photo from photos array
+    setPhotos((prev) => prev.filter((photo) => photo.id !== photoId));
+
+    // Remove from liked photos
+    setLikedPhotos((prev) => {
+      const newLiked = new Set(prev);
+      newLiked.delete(photoId);
+      return newLiked;
+    });
+
+    // Remove from saved photos
+    setSavedPhotos((prev) => prev.filter((sp) => sp.photoId !== photoId));
+
+    // Remove from all collections
+    setCollections((prev) =>
+      prev.map((collection) => ({
+        ...collection,
+        photoIds: collection.photoIds.filter((id) => id !== photoId),
+        coverImage: collection.coverImage === photoId ? undefined : collection.coverImage,
+      }))
+    );
+
+    // Close modal if this photo was selected
+    if (selectedPhoto?.id === photoId) {
+      setSelectedPhoto(null);
+    }
+  };
+
   const handleLike = (photoId: string) => {
     setPhotos((prevPhotos) =>
       prevPhotos.map((photo) => {
@@ -433,6 +464,7 @@ function AppContent() {
             onDownloadClick={setPhotoToDownload}
             onFollow={handleFollow}
             onUserClick={setViewingProfile}
+            onDelete={handleDeletePhoto}
             isLiked={likedPhotos.has(selectedPhoto.id)}
             isSaved={savedPhotoSet.has(selectedPhoto.id)}
           />
@@ -502,6 +534,7 @@ function AppContent() {
           onDownloadClick={setPhotoToDownload}
           onFollow={handleFollow}
           onUserClick={setViewingProfile}
+          onDelete={handleDeletePhoto}
           isLiked={likedPhotos.has(selectedPhoto.id)}
           isSaved={savedPhotoSet.has(selectedPhoto.id)}
         />

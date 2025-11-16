@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  # MySQL Database
+  mysql:
+    image: mysql:8.0
+    container_name: shutterly_mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: shutterly
+      MYSQL_USER: shutterly_user
+      MYSQL_PASSWORD: shutterly_pass
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - shutterly_network
+
+  # PhpMyAdmin
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: shutterly_phpmyadmin
+    restart: always
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: root_password
+    ports:
+      - "8080:80"
+    depends_on:
+      - mysql
+    networks:
+      - shutterly_network
+
+volumes:
+  mysql_data:
+    driver: local
+
+networks:
+  shutterly_network:
+    driver: bridge

@@ -4,7 +4,7 @@
  * @author Youssef, Dominic, Mustafa
  */
 
-import { User as IUser } from '../types';
+import type { User as IUser } from '../types';
 
 /**
  * Represents a user in the Shutterly platform

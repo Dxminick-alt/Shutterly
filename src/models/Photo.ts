@@ -4,7 +4,7 @@
  * @author Youssef, Dominic, Mustafa
  */
 
-import { Photo as IPhoto, Comment } from '../types';
+import type { Photo as IPhoto, Comment } from '../types';
 
 /**
  * Represents a photo post in the Shutterly platform
