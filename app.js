@@ -50,6 +50,106 @@ const samplePhotos = [
         description: 'Colors of the desert',
         views: 1876,
         avatar: 'https://i.pravatar.cc/150?img=60'
+    },
+    {
+        id: 6,
+        url: 'https://images.unsplash.com/photo-1511593358241-7eea1f3c84e5?auto=format&fit=crop&w=800&q=60',
+        title: 'Urban Streets',
+        author: 'David Brown',
+        category: 'street',
+        description: 'Life in the city',
+        views: 2890,
+        avatar: 'https://i.pravatar.cc/150?img=8'
+    },
+    {
+        id: 7,
+        url: 'https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?auto=format&fit=crop&w=800&q=60',
+        title: 'Ocean Waves',
+        author: 'Emma Davis',
+        category: 'nature',
+        description: 'Peaceful coastal view',
+        views: 3421,
+        avatar: 'https://i.pravatar.cc/150?img=25'
+    },
+    {
+        id: 8,
+        url: 'https://images.unsplash.com/photo-1477346611705-65d1883cee1e?auto=format&fit=crop&w=800&q=60',
+        title: 'Mountain Lake',
+        author: 'Chris Wilson',
+        category: 'landscape',
+        description: 'Reflections in crystal water',
+        views: 2156,
+        avatar: 'https://i.pravatar.cc/150?img=15'
+    },
+    {
+        id: 9,
+        url: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=800&q=60',
+        title: 'Starry Night',
+        author: 'Lisa Martinez',
+        category: 'nature',
+        description: 'Milky way over mountains',
+        views: 4123,
+        avatar: 'https://i.pravatar.cc/150?img=30'
+    },
+    {
+        id: 10,
+        url: 'https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?auto=format&fit=crop&w=800&q=60',
+        title: 'Modern Architecture',
+        author: 'Tom Anderson',
+        category: 'architecture',
+        description: 'Geometric building design',
+        views: 1987,
+        avatar: 'https://i.pravatar.cc/150?img=40'
+    },
+    {
+        id: 11,
+        url: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=800&q=60',
+        title: 'Fashion Portrait',
+        author: 'Nina Johnson',
+        category: 'portrait',
+        description: 'Studio fashion shoot',
+        views: 5234,
+        avatar: 'https://i.pravatar.cc/150?img=50'
+    },
+    {
+        id: 12,
+        url: 'https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?auto=format&fit=crop&w=800&q=60',
+        title: 'Coffee Culture',
+        author: 'Mark Taylor',
+        category: 'street',
+        description: 'Morning cafe vibes',
+        views: 1543,
+        avatar: 'https://i.pravatar.cc/150?img=18'
+    },
+    {
+        id: 13,
+        url: 'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=800&q=60',
+        title: 'Tropical Paradise',
+        author: 'Rachel Green',
+        category: 'landscape',
+        description: 'Beach sunset views',
+        views: 3876,
+        avatar: 'https://i.pravatar.cc/150?img=22'
+    },
+    {
+        id: 14,
+        url: 'https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=800&q=60',
+        title: 'Autumn Colors',
+        author: 'Peter Kim',
+        category: 'nature',
+        description: 'Fall foliage glory',
+        views: 2654,
+        avatar: 'https://i.pravatar.cc/150?img=35'
+    },
+    {
+        id: 15,
+        url: 'https://images.unsplash.com/photo-1448932223592-d1fc686e76ea?auto=format&fit=crop&w=800&q=60',
+        title: 'City Skyline',
+        author: 'Anna White',
+        category: 'architecture',
+        description: 'Downtown at dusk',
+        views: 3145,
+        avatar: 'https://i.pravatar.cc/150?img=28'
     }
 ];
 
@@ -150,12 +250,35 @@ function initTheme() {
     if (theme === 'dark') {
         document.body.classList.add('dark-theme');
     }
+    updateThemeIcons();
 }
 
 function toggleTheme() {
     document.body.classList.toggle('dark-theme');
     const isDark = document.body.classList.contains('dark-theme');
     localStorage.setItem('shutterly_theme', isDark ? 'dark' : 'light');
+    updateThemeIcons();
+}
+
+function updateThemeIcons() {
+    const isDark = document.body.classList.contains('dark-theme');
+    const icon = isDark ? 'fa-sun' : 'fa-moon';
+    
+    // Update navbar theme toggle icon
+    if (elements.themeToggle) {
+        const navIcon = elements.themeToggle.querySelector('i');
+        if (navIcon) {
+            navIcon.className = `fas ${icon}`;
+        }
+    }
+    
+    // Update login theme toggle icon
+    if (elements.loginThemeToggle) {
+        const loginIcon = elements.loginThemeToggle.querySelector('i');
+        if (loginIcon) {
+            loginIcon.className = `fas ${icon}`;
+        }
+    }
 }
 
 // User Management
@@ -572,8 +695,20 @@ function setupEventListeners() {
     if (elements.homeLink) {
         elements.homeLink.onclick = (e) => {
             e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            // Close all modals
             document.querySelectorAll('.modal').forEach(m => m.style.display = 'none');
+            // Reset to show all photos
+            currentCategory = 'all';
+            currentPhotos = [...samplePhotos];
+            renderPhotos(currentPhotos);
+            // Update category buttons
+            elements.categoryBtns.forEach(b => b.classList.remove('active'));
+            const allBtn = document.querySelector('[data-category="all"]');
+            if (allBtn) allBtn.classList.add('active');
+            // Clear search
+            if (elements.searchInput) elements.searchInput.value = '';
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         };
     }
     
@@ -582,13 +717,14 @@ function setupEventListeners() {
         if (elements.uploadModal) elements.uploadModal.style.display = 'flex';
     };
     
-    // Search
-    if (elements.searchBtn) elements.searchBtn.onclick = searchPhotos;
+    // Search - Real-time search
     if (elements.searchInput) {
+        elements.searchInput.oninput = searchPhotos;
         elements.searchInput.onkeypress = (e) => {
             if (e.key === 'Enter') searchPhotos();
         };
     }
+    if (elements.searchBtn) elements.searchBtn.onclick = searchPhotos;
     
     // Categories
     elements.categoryBtns.forEach(btn => {
