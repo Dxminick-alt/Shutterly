@@ -1,0 +1,277 @@
+# Page snapshot
+
+```yaml
+- generic:
+  - generic:
+    - generic:
+      - navigation:
+        - generic:
+          - generic:
+            - button:
+              - img
+            - generic:
+              - generic:
+                - img
+                - textbox:
+                  - /placeholder: Search photos...
+            - generic:
+              - button:
+                - img
+              - button:
+                - img
+                - text: Upload
+              - button [expanded]:
+                - generic:
+                  - img
+      - generic:
+        - generic:
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - img
+                  - generic:
+                    - generic [ref=e1] [cursor=pointer]:
+                      - button [ref=e2]:
+                        - img [ref=e3]
+                      - button [ref=e5]:
+                        - img [ref=e6]
+                      - button [ref=e8]:
+                        - img [ref=e9]
+                    - generic:
+                      - heading [level=3]: Golden Hour Portrait
+                      - generic:
+                        - generic:
+                          - img
+                        - generic: Sarah Johnson
+                      - generic:
+                        - generic:
+                          - img
+                          - text: "124"
+                        - generic:
+                          - img
+                          - text: "1"
+              - generic:
+                - button [ref=e13]:
+                  - img [ref=e14]
+                - button [ref=e16]:
+                  - img [ref=e17]
+                - button [ref=e19]:
+                  - img [ref=e20]
+                - generic:
+                  - img
+                - generic: Alex Rivera
+                - generic:
+                  - img
+                  - text: "142"
+                - generic:
+                  - img
+                  - text: "0"
+              - generic:
+                - generic:
+                  - img
+                  - generic:
+                    - generic [ref=e24] [cursor=pointer]:
+                      - button [ref=e25]:
+                        - img [ref=e26]
+                      - button [ref=e28]:
+                        - img [ref=e29]
+                      - button [ref=e31]:
+                        - img [ref=e32]
+                    - generic:
+                      - heading [level=3]: Wanderlust
+                      - generic:
+                        - generic:
+                          - img
+                        - generic: Sarah Johnson
+                      - generic:
+                        - generic:
+                          - img
+                          - text: "178"
+                        - generic:
+                          - img
+                          - text: "0"
+            - generic:
+              - generic:
+                - button [ref=e36]:
+                  - img [ref=e37]
+                - button [ref=e39]:
+                  - img [ref=e40]
+                - button [ref=e42]:
+                  - img [ref=e43]
+                - generic:
+                  - img
+                - generic: Mike Chen
+                - generic:
+                  - img
+                  - text: "89"
+                - generic:
+                  - img
+                  - text: "0"
+              - generic:
+                - button [ref=e47]:
+                  - img [ref=e48]
+                - button [ref=e50]:
+                  - img [ref=e51]
+                - button [ref=e53]:
+                  - img [ref=e54]
+                - generic:
+                  - img
+                - generic: Mike Chen
+                - generic:
+                  - img
+                  - text: "198"
+                - generic:
+                  - img
+                  - text: "0"
+              - generic:
+                - button [ref=e58]:
+                  - img [ref=e59]
+                - button [ref=e61]:
+                  - img [ref=e62]
+                - button [ref=e64]:
+                  - img [ref=e65]
+                - generic:
+                  - img
+                - generic: Mike Chen
+                - generic:
+                  - img
+                  - text: "234"
+                - generic:
+                  - img
+                  - text: "0"
+            - generic:
+              - generic:
+                - generic:
+                  - img
+                  - generic:
+                    - generic [ref=e69] [cursor=pointer]:
+                      - button [ref=e70]:
+                        - img [ref=e71]
+                      - button [ref=e73]:
+                        - img [ref=e74]
+                      - button [ref=e76]:
+                        - img [ref=e77]
+                    - generic:
+                      - heading [level=3]: Wedding Bliss
+                      - generic:
+                        - generic:
+                          - img
+                        - generic: Emma Davis
+                      - generic:
+                        - generic:
+                          - img
+                          - text: "256"
+                        - generic:
+                          - img
+                          - text: "0"
+              - generic:
+                - generic:
+                  - img
+                  - generic:
+                    - generic [ref=e81] [cursor=pointer]:
+                      - button [ref=e82]:
+                        - img [ref=e83]
+                      - button [ref=e85]:
+                        - img [ref=e86]
+                      - button [ref=e88]:
+                        - img [ref=e89]
+                    - generic:
+                      - heading [level=3]: Architectural Wonder
+                      - generic:
+                        - generic:
+                          - img
+                        - generic: Emma Davis
+                      - generic:
+                        - generic:
+                          - img
+                          - text: "103"
+                        - generic:
+                          - img
+                          - text: "0"
+              - generic:
+                - generic:
+                  - img
+                  - generic:
+                    - generic [ref=e93] [cursor=pointer]:
+                      - button [ref=e94]:
+                        - img [ref=e95]
+                      - button [ref=e97]:
+                        - img [ref=e98]
+                      - button [ref=e100]:
+                        - img [ref=e101]
+                    - generic:
+                      - heading [level=3]: Color Burst
+                      - generic:
+                        - generic:
+                          - img
+                        - generic: Emma Davis
+                      - generic:
+                        - generic:
+                          - img
+                          - text: "91"
+                        - generic:
+                          - img
+                          - text: "0"
+            - generic:
+              - generic:
+                - generic:
+                  - img
+                  - generic:
+                    - generic [ref=e105] [cursor=pointer]:
+                      - button [ref=e106]:
+                        - img [ref=e107]
+                      - button [ref=e109]:
+                        - img [ref=e110]
+                      - button [ref=e112]:
+                        - img [ref=e113]
+                    - generic:
+                      - heading [level=3]: Abstract Shadows
+                      - generic:
+                        - generic:
+                          - img
+                        - generic: Sarah Johnson
+                      - generic:
+                        - generic:
+                          - img
+                          - text: "67"
+                        - generic:
+                          - img
+                          - text: "0"
+              - generic:
+                - generic:
+                  - img
+                  - generic:
+                    - generic [ref=e117] [cursor=pointer]:
+                      - button [ref=e118]:
+                        - img [ref=e119]
+                      - button [ref=e121]:
+                        - img [ref=e122]
+                      - button [ref=e124]:
+                        - img [ref=e125]
+                    - generic:
+                      - heading [level=3]: Fashion Forward
+                      - generic:
+                        - generic:
+                          - img
+                        - generic: Alex Rivera
+                      - generic:
+                        - generic:
+                          - img
+                          - text: "215"
+                        - generic:
+                          - img
+                          - text: "0"
+  - menu "searchuser" [active] [ref=e129]:
+    - generic [ref=e130]:
+      - paragraph [ref=e131]: searchuser
+      - paragraph [ref=e132]: search@test.com
+    - separator [ref=e133]
+    - menuitem "Profile" [ref=e134]:
+      - img
+      - text: Profile
+    - separator [ref=e135]
+    - menuitem "Logout" [ref=e136]:
+      - img
+      - text: Logout
+```

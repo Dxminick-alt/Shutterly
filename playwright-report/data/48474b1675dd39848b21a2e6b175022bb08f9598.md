@@ -1,0 +1,278 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - navigation [ref=e4]:
+    - generic [ref=e6]:
+      - button "Shutterly" [ref=e7]:
+        - img "Shutterly" [ref=e8]
+      - generic [ref=e10]:
+        - img [ref=e11]
+        - textbox "Search photos..." [ref=e14]
+      - generic [ref=e15]:
+        - button [ref=e16]:
+          - img
+        - button "Upload" [ref=e17]:
+          - img
+          - text: Upload
+        - button "searchuser" [ref=e18]:
+          - img "searchuser" [ref=e20]
+  - generic [ref=e23]:
+    - generic [ref=e24]:
+      - generic [ref=e26] [cursor=pointer]:
+        - img "Golden Hour Portrait" [ref=e27]
+        - generic:
+          - generic [ref=e28]:
+            - button [ref=e29]:
+              - img [ref=e30]
+            - button [ref=e32]:
+              - img [ref=e33]
+            - button [ref=e35]:
+              - img [ref=e36]
+          - generic:
+            - heading "Golden Hour Portrait" [level=3]
+            - generic:
+              - generic:
+                - img "Sarah Johnson"
+              - generic: Sarah Johnson
+            - generic:
+              - generic:
+                - img
+                - text: "124"
+              - generic:
+                - img
+                - text: "1"
+      - generic [ref=e41] [cursor=pointer]:
+        - img "Urban Life" [ref=e42]
+        - generic:
+          - generic [ref=e43]:
+            - button [ref=e44]:
+              - img [ref=e45]
+            - button [ref=e47]:
+              - img [ref=e48]
+            - button [ref=e50]:
+              - img [ref=e51]
+          - generic:
+            - heading "Urban Life" [level=3]
+            - generic:
+              - generic:
+                - img "Alex Rivera"
+              - generic: Alex Rivera
+            - generic:
+              - generic:
+                - img
+                - text: "142"
+              - generic:
+                - img
+                - text: "0"
+      - generic [ref=e56] [cursor=pointer]:
+        - img "Wanderlust" [ref=e57]
+        - generic:
+          - generic [ref=e58]:
+            - button [ref=e59]:
+              - img [ref=e60]
+            - button [ref=e62]:
+              - img [ref=e63]
+            - button [ref=e65]:
+              - img [ref=e66]
+          - generic:
+            - heading "Wanderlust" [level=3]
+            - generic:
+              - generic:
+                - img "Sarah Johnson"
+              - generic: Sarah Johnson
+            - generic:
+              - generic:
+                - img
+                - text: "178"
+              - generic:
+                - img
+                - text: "0"
+    - generic [ref=e70]:
+      - generic [ref=e72] [cursor=pointer]:
+        - img "Mountain Majesty" [ref=e73]
+        - generic:
+          - generic [ref=e74]:
+            - button [ref=e75]:
+              - img [ref=e76]
+            - button [ref=e78]:
+              - img [ref=e79]
+            - button [ref=e81]:
+              - img [ref=e82]
+          - generic:
+            - heading "Mountain Majesty" [level=3]
+            - generic:
+              - generic:
+                - img "Mike Chen"
+              - generic: Mike Chen
+            - generic:
+              - generic:
+                - img
+                - text: "89"
+              - generic:
+                - img
+                - text: "0"
+      - generic [ref=e87] [cursor=pointer]:
+        - img "Culinary Art" [ref=e88]
+        - generic:
+          - generic [ref=e89]:
+            - button [ref=e90]:
+              - img [ref=e91]
+            - button [ref=e93]:
+              - img [ref=e94]
+            - button [ref=e96]:
+              - img [ref=e97]
+          - generic:
+            - heading "Culinary Art" [level=3]
+            - generic:
+              - generic:
+                - img "Mike Chen"
+              - generic: Mike Chen
+            - generic:
+              - generic:
+                - img
+                - text: "198"
+              - generic:
+                - img
+                - text: "0"
+      - generic [ref=e102] [cursor=pointer]:
+        - img "Wild Nature" [ref=e103]
+        - generic:
+          - generic [ref=e104]:
+            - button [ref=e105]:
+              - img [ref=e106]
+            - button [ref=e108]:
+              - img [ref=e109]
+            - button [ref=e111]:
+              - img [ref=e112]
+          - generic:
+            - heading "Wild Nature" [level=3]
+            - generic:
+              - generic:
+                - img "Mike Chen"
+              - generic: Mike Chen
+            - generic:
+              - generic:
+                - img
+                - text: "234"
+              - generic:
+                - img
+                - text: "0"
+    - generic [ref=e116]:
+      - generic [ref=e118] [cursor=pointer]:
+        - img "Wedding Bliss" [ref=e119]
+        - generic:
+          - generic [ref=e120]:
+            - button [ref=e121]:
+              - img [ref=e122]
+            - button [ref=e124]:
+              - img [ref=e125]
+            - button [ref=e127]:
+              - img [ref=e128]
+          - generic:
+            - heading "Wedding Bliss" [level=3]
+            - generic:
+              - generic:
+                - img "Emma Davis"
+              - generic: Emma Davis
+            - generic:
+              - generic:
+                - img
+                - text: "256"
+              - generic:
+                - img
+                - text: "0"
+      - generic [ref=e133] [cursor=pointer]:
+        - img "Architectural Wonder" [ref=e134]
+        - generic:
+          - generic [ref=e135]:
+            - button [ref=e136]:
+              - img [ref=e137]
+            - button [ref=e139]:
+              - img [ref=e140]
+            - button [ref=e142]:
+              - img [ref=e143]
+          - generic:
+            - heading "Architectural Wonder" [level=3]
+            - generic:
+              - generic:
+                - img "Emma Davis"
+              - generic: Emma Davis
+            - generic:
+              - generic:
+                - img
+                - text: "103"
+              - generic:
+                - img
+                - text: "0"
+      - generic [ref=e148] [cursor=pointer]:
+        - img "Color Burst" [ref=e149]
+        - generic:
+          - generic [ref=e150]:
+            - button [ref=e151]:
+              - img [ref=e152]
+            - button [ref=e154]:
+              - img [ref=e155]
+            - button [ref=e157]:
+              - img [ref=e158]
+          - generic:
+            - heading "Color Burst" [level=3]
+            - generic:
+              - generic:
+                - img "Emma Davis"
+              - generic: Emma Davis
+            - generic:
+              - generic:
+                - img
+                - text: "91"
+              - generic:
+                - img
+                - text: "0"
+    - generic [ref=e162]:
+      - generic [ref=e164] [cursor=pointer]:
+        - img "Abstract Shadows" [ref=e165]
+        - generic:
+          - generic [ref=e166]:
+            - button [ref=e167]:
+              - img [ref=e168]
+            - button [ref=e170]:
+              - img [ref=e171]
+            - button [ref=e173]:
+              - img [ref=e174]
+          - generic:
+            - heading "Abstract Shadows" [level=3]
+            - generic:
+              - generic:
+                - img "Sarah Johnson"
+              - generic: Sarah Johnson
+            - generic:
+              - generic:
+                - img
+                - text: "67"
+              - generic:
+                - img
+                - text: "0"
+      - generic [ref=e179] [cursor=pointer]:
+        - img "Fashion Forward" [ref=e180]
+        - generic:
+          - generic [ref=e181]:
+            - button [ref=e182]:
+              - img [ref=e183]
+            - button [ref=e185]:
+              - img [ref=e186]
+            - button [ref=e188]:
+              - img [ref=e189]
+          - generic:
+            - heading "Fashion Forward" [level=3]
+            - generic:
+              - generic:
+                - img "Alex Rivera"
+              - generic: Alex Rivera
+            - generic:
+              - generic:
+                - img
+                - text: "215"
+              - generic:
+                - img
+                - text: "0"
+```

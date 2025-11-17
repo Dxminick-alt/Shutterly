@@ -1,0 +1,43 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - navigation [ref=e4]:
+    - generic [ref=e6]:
+      - button "Shutterly" [ref=e7]:
+        - img "Shutterly" [ref=e8]
+      - generic [ref=e10]:
+        - img [ref=e11]
+        - textbox "Search photos..." [active] [ref=e14]: nature
+      - generic [ref=e15]:
+        - button [ref=e16]:
+          - img
+        - button "Upload" [ref=e17]:
+          - img
+          - text: Upload
+        - button "searchuser" [ref=e18]:
+          - img "searchuser" [ref=e20]
+  - generic [ref=e26] [cursor=pointer]:
+    - img "Wild Nature" [ref=e27]
+    - generic:
+      - generic [ref=e28]:
+        - button [ref=e29]:
+          - img [ref=e30]
+        - button [ref=e32]:
+          - img [ref=e33]
+        - button [ref=e35]:
+          - img [ref=e36]
+      - generic:
+        - heading "Wild Nature" [level=3]
+        - generic:
+          - generic:
+            - img "Mike Chen"
+          - generic: Mike Chen
+        - generic:
+          - generic:
+            - img
+            - text: "234"
+          - generic:
+            - img
+            - text: "0"
+```

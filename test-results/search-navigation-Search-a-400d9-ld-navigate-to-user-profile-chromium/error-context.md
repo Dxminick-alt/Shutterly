@@ -1,0 +1,229 @@
+# Page snapshot
+
+```yaml
+- generic:
+  - generic:
+    - generic:
+      - navigation:
+        - generic:
+          - generic:
+            - button:
+              - img
+            - generic:
+              - generic:
+                - img
+                - textbox:
+                  - /placeholder: Search photos...
+            - generic:
+              - button:
+                - img
+              - button:
+                - img
+                - text: Upload
+              - button [expanded]:
+                - generic:
+                  - img
+      - generic:
+        - generic:
+          - generic:
+            - generic:
+              - generic:
+                - button [ref=e1]:
+                  - img [ref=e2]
+                - button [ref=e4]:
+                  - img [ref=e5]
+                - button [ref=e7]:
+                  - img [ref=e8]
+                - generic:
+                  - img
+                - generic: Sarah Johnson
+                - generic:
+                  - img
+                  - text: "124"
+                - generic:
+                  - img
+                  - text: "1"
+              - generic:
+                - button [ref=e11]:
+                  - img [ref=e12]
+                - button [ref=e14]:
+                  - img [ref=e15]
+                - button [ref=e17]:
+                  - img [ref=e18]
+                - generic:
+                  - generic: A
+                - generic: Alex Rivera
+                - generic:
+                  - img
+                  - text: "142"
+                - generic:
+                  - img
+                  - text: "0"
+              - generic:
+                - button [ref=e21]:
+                  - img [ref=e22]
+                - button [ref=e24]:
+                  - img [ref=e25]
+                - button [ref=e27]:
+                  - img [ref=e28]
+                - generic:
+                  - img
+                - generic: Sarah Johnson
+                - generic:
+                  - img
+                  - text: "178"
+                - generic:
+                  - img
+                  - text: "0"
+            - generic:
+              - generic:
+                - button [ref=e31]:
+                  - img [ref=e32]
+                - button [ref=e34]:
+                  - img [ref=e35]
+                - button [ref=e37]:
+                  - img [ref=e38]
+                - generic:
+                  - img
+                - generic: Mike Chen
+                - generic:
+                  - img
+                  - text: "89"
+                - generic:
+                  - img
+                  - text: "0"
+              - generic:
+                - button [ref=e41]:
+                  - img [ref=e42]
+                - button [ref=e44]:
+                  - img [ref=e45]
+                - button [ref=e47]:
+                  - img [ref=e48]
+                - generic:
+                  - img
+                - generic: Mike Chen
+                - generic:
+                  - img
+                  - text: "198"
+                - generic:
+                  - img
+                  - text: "0"
+              - generic:
+                - button [ref=e51]:
+                  - img [ref=e52]
+                - button [ref=e54]:
+                  - img [ref=e55]
+                - button [ref=e57]:
+                  - img [ref=e58]
+                - generic:
+                  - img
+                - generic: Mike Chen
+                - generic:
+                  - img
+                  - text: "234"
+                - generic:
+                  - img
+                  - text: "0"
+            - generic:
+              - generic:
+                - button [ref=e61]:
+                  - img [ref=e62]
+                - button [ref=e64]:
+                  - img [ref=e65]
+                - button [ref=e67]:
+                  - img [ref=e68]
+                - generic:
+                  - img
+                - generic: Emma Davis
+                - generic:
+                  - img
+                  - text: "256"
+                - generic:
+                  - img
+                  - text: "0"
+              - generic:
+                - button [ref=e71]:
+                  - img [ref=e72]
+                - button [ref=e74]:
+                  - img [ref=e75]
+                - button [ref=e77]:
+                  - img [ref=e78]
+                - generic:
+                  - img
+                - generic: Emma Davis
+                - generic:
+                  - img
+                  - text: "103"
+                - generic:
+                  - img
+                  - text: "0"
+              - generic:
+                - generic:
+                  - img
+                  - generic:
+                    - generic [ref=e81] [cursor=pointer]:
+                      - button [ref=e82]:
+                        - img [ref=e83]
+                      - button [ref=e85]:
+                        - img [ref=e86]
+                      - button [ref=e88]:
+                        - img [ref=e89]
+                    - generic:
+                      - heading [level=3]: Color Burst
+                      - generic:
+                        - generic:
+                          - img
+                        - generic: Emma Davis
+                      - generic:
+                        - generic:
+                          - img
+                          - text: "91"
+                        - generic:
+                          - img
+                          - text: "0"
+            - generic:
+              - generic:
+                - button [ref=e92]:
+                  - img [ref=e93]
+                - button [ref=e95]:
+                  - img [ref=e96]
+                - button [ref=e98]:
+                  - img [ref=e99]
+                - generic:
+                  - img
+                - generic: Sarah Johnson
+                - generic:
+                  - img
+                  - text: "67"
+                - generic:
+                  - img
+                  - text: "0"
+              - generic:
+                - button [ref=e102]:
+                  - img [ref=e103]
+                - button [ref=e105]:
+                  - img [ref=e106]
+                - button [ref=e108]:
+                  - img [ref=e109]
+                - generic:
+                  - generic: A
+                - generic: Alex Rivera
+                - generic:
+                  - img
+                  - text: "215"
+                - generic:
+                  - img
+                  - text: "0"
+  - menu "searchuser" [active] [ref=e112]:
+    - generic [ref=e113]:
+      - paragraph [ref=e114]: searchuser
+      - paragraph [ref=e115]: search@test.com
+    - separator [ref=e116]
+    - menuitem "Profile" [ref=e117]:
+      - img
+      - text: Profile
+    - separator [ref=e118]
+    - menuitem "Logout" [ref=e119]:
+      - img
+      - text: Logout
+```
