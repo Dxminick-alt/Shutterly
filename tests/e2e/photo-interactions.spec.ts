@@ -11,11 +11,11 @@ test.describe('Photo Interactions', () => {
     await page.goto('/');
     
     // Create account and login
-    await page.getByRole('button', { name: /sign up/i }).click();
-    await page.getByPlaceholder(/username/i).fill('interactionuser');
-    await page.getByPlaceholder(/email/i).fill('interaction@test.com');
-    await page.getByPlaceholder(/password/i).fill('Test123!');
-    await page.getByRole('button', { name: /create account/i }).click();
+    await page.getByText("Don't have an account? Sign up").click();
+    await page.getByPlaceholder('Your name').fill('interactionuser');
+    await page.getByPlaceholder('your.email@example.com').fill('interaction@test.com');
+    await page.getByPlaceholder('••••••••').fill('Test123!');
+    await page.getByRole('button', { name: 'Sign Up' }).click();
     await page.waitForSelector('nav');
   });
 
